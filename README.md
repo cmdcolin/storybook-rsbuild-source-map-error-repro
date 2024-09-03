@@ -1,73 +1,41 @@
-# @jbrowse/react-linear-genome-view
+# error with production build of storybook-rsbuild
 
-> JBrowse 2 linear genome view React component
+See https://github.com/rspack-contrib/storybook-rsbuild/issues/83
 
-[JBrowse 2](https://jbrowse.org/jb2/) is a pluggable open-source platform for
-visualizing, integrating, and sharing biological data. This component consists
-of a single JBrowse 2 linear view.
-
-## Usage
-
-```tsx
-import React from 'react'
-import '@fontsource/roboto'
-import {
-  createViewState,
-  JBrowseLinearGenomeView,
-} from '@jbrowse/react-linear-genome-view'
-
-function View() {
-  const state = createViewState({
-    assembly: {
-      /* assembly */
-    },
-    tracks: [
-      /* tracks */
-    ],
-  })
-  return <JBrowseLinearGenomeView viewState={state} />
-}
-```
-
-For working examples, see https://jbrowse.org/jb2/docs/embedded_components/
-
-## Install
-
-With [yarn](https://yarnpkg.com/):
+Reproduce:
 
 ```
-$ yarn add @jbrowse/react-linear-genome-view
+clone repo
+cd repo
+yarn
+yarn storybook # devmode, works
+yarn storybook:build # error
 ```
 
-Or with [npm](https://npmjs.org/):
+## output
 
 ```
-$ npm install @jbrowse/react-linear-genome-view --legacy-peer-deps
+$ storybook build
+storybook v8.2.9
+
+info => Cleaning outputDir: storybook-static
+info => Loading presets
+info => Building manager..
+info => Manager built (94 ms)
+info => Building preview..
+info Addon-docs: using MDX3
+WARN No story files found for the specified pattern: stories/**/*.mdx
+info => Copying static files: public at storybook-static
+● web ━━━━━━━━━━━━━━━━━━━━━━━━━ (70%) sealing asset processing                                        Panic occurred at runtime. Please file an issue on GitHub with the backtrace below: https://github.com/web-infra-dev/rspack/issues
+Message:  called `Option::unwrap()` on a `None` value
+Location: index.crates.io-6f17d22bba15001f/rspack_sources-0.3.0/src/helpers.rs:838
+
+Backtrace omitted.
+
+Run with RUST_BACKTRACE=1 environment variable to display it.
+Run with RUST_BACKTRACE=full to include source snippets.
+Aborted (core dumped)
+error Command failed with exit code 134.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+
 ```
-
-The --legacy-peer-deps helps with installing via NPM to avoid warnings about the
-peer dependencies not being met while installing.
-
-## Documentation
-
-The latest documentation for the component is hosted at
-https://jbrowse.org/storybook/lgv/main
-
-### Note on fonts
-
-[Roboto](https://fonts.google.com/specimen/Roboto) is the recommended font for
-JBrowse, and this component will use that font if it is available. The easiest
-way to add it is to add the
-[`@fontsource/roboto`](https://www.npmjs.com/package/@fontsource/roboto) package
-to your project and import it in your root `index.js`.
-
-## Academic Use
-
-This package was written with funding from the [NHGRI](https://genome.gov/) as
-part of the JBrowse project. If you use it in an academic project that you
-publish, please cite the most recent JBrowse paper, which will be linked from
-[jbrowse.org](https://jbrowse.org/).
-
-## License
-
-MIT
