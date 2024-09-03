@@ -1,31 +1,7 @@
 {
-  "name": "@jbrowse/react-linear-genome-view",
+  "name": "storybook-rsbuild-source-map-error-repro",
   "version": "2.14.0",
-  "description": "JBrowse 2 linear genome view React component",
-  "keywords": [
-    "jbrowse",
-    "jbrowse2"
-  ],
   "license": "MIT",
-  "homepage": "https://jbrowse.org",
-  "bugs": "https://github.com/GMOD/jbrowse-components/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/GMOD/jbrowse-components.git",
-    "directory": "products/jbrowse-react-linear-genome-view"
-  },
-  "author": "JBrowse Team",
-  "distMain": "dist/index.js",
-  "srcMain": "src/index.ts",
-  "distModule": "esm/index.js",
-  "srcModule": "src/index.ts",
-  "module": "",
-  "main": "src/index.ts",
-  "files": [
-    "dist",
-    "esm",
-    "docs"
-  ],
   "scripts": {
     "clean": "rimraf dist esm *.tsbuildinfo",
     "storybook": "storybook dev --port 6006",
@@ -60,11 +36,5 @@
     "tss-react": "^4.9.12",
     "typescript": "^5.5.4",
     "webpack": "^5.94.0"
-  },
-  "peerDependencies": {
-    "react": ">=16.8.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
